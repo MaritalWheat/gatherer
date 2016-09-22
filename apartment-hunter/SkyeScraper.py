@@ -26,16 +26,11 @@ for price in prices:
         index = 0
 print apartment
 
-account_sid = "ACac177d3ce5e32442c341a00d1abf5299"
-auth_token  = "963394b143d89d0ff57390593d8fb5d6"
+account_sid = twilioAccountSid #redacted for GitHub
+auth_token  = twilioAuthToken #redacted for GitHub
 client = TwilioRestClient(account_sid, auth_token)
 
 message = client.messages.create(body=apartment,
-    to="+12623883231",    # Replace with your phone number
-    from_="+12623931883") # Replace with your Twilio number
+    to=recepientPhoneNum,    # Replace with your phone number
+    from_=senderPhoneNum") # Replace with your Twilio number
 print message.sid
-
-#message = client.messages.create(body=apartment,
-#    to="+14148972732",    # Replace with your phone number
-#    from_="+12623931883") # Replace with your Twilio number
-#print message.sid
